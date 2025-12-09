@@ -28,7 +28,7 @@ beforeEach(() => {
 test("typing in filter reduces displayed users", async () => {
   render(<UsersPage />);
 
-  // Wait for the users to be rendered
+  // Wait users to be rendered
   await waitFor(() => {
     expect(screen.getByText("Leanne Graham")).toBeInTheDocument();
   });
@@ -36,7 +36,8 @@ test("typing in filter reduces displayed users", async () => {
   const input = screen.getByTestId("filter-input");
   fireEvent.change(input, { target: { value: "Leanne" } });
 
-  // Now only Leanne should remain
+  // Only Leanne 
   expect(screen.getByText("Leanne Graham")).toBeInTheDocument();
   expect(screen.queryByText("Ervin Howell")).not.toBeInTheDocument();
 });
+
